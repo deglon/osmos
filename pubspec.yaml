@@ -1,0 +1,32 @@
+name: osmos
+description: A diabetes management application
+publish_to: 'none'
+
+environment:
+  sdk: '^3.7.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_sign_in: ^6.1.6
+  sign_in_with_apple: ^7.0.1
+  flutter_facebook_auth: ^6.0.3
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/Screenshot_1.png
+fonts:
+  - family: League Spartan
+    fonts:
+      - asset: assets/fonts/LeagueSpartan-Regular.ttf
+      - asset: assets/fonts/LeagueSpartan-Medium.ttf
+        weight: 500
+      - asset: assets/fonts/LeagueSpartan-Light.ttf
+        weight: 300
