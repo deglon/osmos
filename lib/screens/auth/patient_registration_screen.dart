@@ -130,7 +130,29 @@ class _PatientRegistrationScreenState extends State<PatientRegistrationScreen> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // TODO: Implement registration logic
+                      // Simulate registration process
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (context) => const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      );
+                      
+                      // Simulate API call with a delay
+                      Future.delayed(const Duration(seconds: 2), () {
+                        Navigator.pop(context); // Close loading dialog
+                        
+                        // Show success message and navigate back to login
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Account created successfully! Please log in.'),
+                            backgroundColor: Color(0xFF006B49),
+                          ),
+                        );
+                        
+                        Navigator.pop(context); // Go back to login screen
+                      });
                     }
                   },
                   style: ElevatedButton.styleFrom(

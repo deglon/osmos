@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'patient_registration_screen.dart';
+import '../reports/reports_screen.dart';  // Add this import
 
 class PatientLoginScreen extends StatefulWidget {
   const PatientLoginScreen({super.key});
@@ -128,7 +130,43 @@ class _PatientLoginScreenState extends State<PatientLoginScreen> {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
-                      // TODO: Implement forgot password
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: const Text('Reset Password'),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Text('Enter your email to receive a password reset link'),
+                              const SizedBox(height: 16),
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                  labelText: 'Email',
+                                  border: OutlineInputBorder(),
+                                ),
+                              ),
+                            ],
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: const Text('Cancel'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                // TODO: Implement actual password reset
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Password reset link sent to your email'),
+                                  ),
+                                );
+                                Navigator.pop(context);
+                              },
+                              child: const Text('Send'),
+                            ),
+                          ],
+                        ),
+                      );
                     },
                     child: const Text(
                       'Forgot Password?',
@@ -140,7 +178,27 @@ class _PatientLoginScreenState extends State<PatientLoginScreen> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // TODO: Implement login
+                      // Simulate login process
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (context) => const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      );
+                      
+                      // Simulate API call with a delay
+                      Future.delayed(const Duration(seconds: 2), () {
+                        Navigator.pop(context); // Close loading dialog
+                        
+                        // Navigate to home screen (you'll need to create this)
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ReportsScreen(),
+                          ),
+                        );
+                      });
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -198,7 +256,12 @@ class _PatientLoginScreenState extends State<PatientLoginScreen> {
                     ),
                     TextButton(
                       onPressed: () {
-                        // TODO: Navigate to sign up
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PatientRegistrationScreen(),
+                          ),
+                        );
                       },
                       child: const Text(
                         'Sign Up',
