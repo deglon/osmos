@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../askosmos.dart';
 
 class ReportsScreen extends StatelessWidget {
   const ReportsScreen({super.key});
@@ -62,7 +63,7 @@ class ReportsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             // Report Categories
             Expanded(
               child: Padding(
@@ -90,7 +91,7 @@ class ReportsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             // Add New Button
             Padding(
               padding: const EdgeInsets.all(20),
@@ -144,14 +145,8 @@ class ReportsScreen extends StatelessWidget {
         unselectedItemColor: Colors.grey,
         currentIndex: 1, // Stats tab selected
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.show_chart),
-            label: 'Stats',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.show_chart), label: 'Stats'),
           BottomNavigationBarItem(
             icon: Icon(Icons.question_answer),
             label: 'Ask Osmos',
@@ -160,13 +155,17 @@ class ReportsScreen extends StatelessWidget {
             icon: Icon(Icons.notifications),
             label: 'Notifications',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
         onTap: (index) {
-          // TODO: Implement navigation
+          if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const OsmosScreen()),
+            );
+          } else {
+            // TODO: Handle other navigation cases
+          }
         },
       ),
     );
@@ -180,9 +179,7 @@ class ReportsScreen extends StatelessWidget {
   }) {
     return Card(
       elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: color,
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -197,11 +194,7 @@ class ReportsScreen extends StatelessWidget {
                     color: iconColor,
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(
-                    icon,
-                    color: Colors.white,
-                    size: 24,
-                  ),
+                  child: Icon(icon, color: Colors.white, size: 24),
                 ),
                 const SizedBox(width: 8),
                 Text(
