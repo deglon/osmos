@@ -13,6 +13,11 @@ dependencies:
   sign_in_with_apple: ^7.0.1
   flutter_facebook_auth: ^6.0.3
   cupertino_icons: ^1.0.2
+  #firdevs 
+  google_maps_flutter: ^2.5.0
+  geolocator: ^10.1.0
+  shared_preferences: ^2.2.2
+  #Milena
   google_generative_ai: ^0.4.7
   record: ^6.0.0
   googleapis: ^13.0.0 
