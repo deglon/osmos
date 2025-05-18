@@ -45,5 +45,10 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<!-- Add these lines inside the <dict> tag -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs microphone access to enable voice chat features</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>This app needs speech recognition to convert your voice to text</string>
 </dict>
 </plist>

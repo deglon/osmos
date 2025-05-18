@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:osmos/core/theme/app_colors.dart';
 
 class AppTextStyles {
   static const String _fontFamily = 'SF Pro Display'; // or 'Roboto' or 'Inter'
@@ -34,9 +35,9 @@ class AppTextStyles {
   );
 
   // Input & Labels
-  static const inputLabel = TextStyle(
+  static var inputLabel = TextStyle(
     fontSize: 14,
-    fontWeight: FontWeight.medium,
+    fontWeight: FontWeight.w500, 
     fontFamily: _fontFamily,
     color: AppColors.textSecondary,
   );
