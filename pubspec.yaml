@@ -15,8 +15,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_generative_ai: ^0.4.7
   record: ^6.0.0
-  googleapis: ^13.0.0 # Assurez-vous d'avoir la dernière version
-  googleapis_auth: ^1.4.1 # Assurez-vous d'avoir la dernière version
+  googleapis: ^13.0.0 
+  googleapis_auth: ^1.4.1 
   audioplayers: ^5.2.1
   flutter_tts: ^4.2.2
   speech_to_text: ^7.0.0
