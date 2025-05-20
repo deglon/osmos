@@ -31,8 +31,120 @@
 
   <title>osmos</title>
   <link rel="manifest" href="manifest.json">
+<!-- Google Maps API -->
+  <script>
+    // Gestionnaire d'erreur pour le chargement de l'API
+    function gm_authFailure() {
+      console.error("Erreur d'authentification Google Maps");
+      // Afficher un message d'erreur à l'utilisateur
+      document.getElementById('map').innerHTML = 
+        '<div style="text-align:center;padding:20px;">Erreur de chargement de Google Maps</div>';
+    }
+  
+    // Vérification du chargement
+    function checkGoogleMapsLoaded() {
+      if (!window.google || !window.google.maps) {
+        console.error('Google Maps n\'a pas pu être chargé');
+        document.getElementById('map').innerHTML =
+          '<div style="text-align:center;padding:20px;">Erreur de chargement de Google Maps</div>';
+    }
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGJL3gsDbNzO3cm2FYKaHEqUhuU6v_Vlw&libraries=places&callback=initMap" 
+    async 
+    defer
+    onerror="checkGoogleMapsLoaded()">
+  </script>
+
+  
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
+
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <!-- Mode Text Display -->
+  <div id="mode">Mode: Loading...</div>
+
+  <script>
+    let userLocation = { lat: 0, lng: 0 }; // Default coordinates
+    let homeLocation = { lat: 48.8566, lng: 2.3522 }; // Example: Paris coordinates (Home location)
+
+    // Function to initialize the map and detect the user's location
+    function initMap() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+            // Get the user's location
+            userLocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            // Initialize the map centered on the user's location
+            const map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 14,
+              center: userLocation,
+            });
+
+            // Add a marker for user's location
+            new google.maps.Marker({
+              position: userLocation,
+              map: map,
+              title: "You are here",
+            });
+
+            // Determine if the user is at home or away
+            checkMode();
+          },
+          function(error) {
+            alert("Error getting location: " + error.message);
+          }
+        );
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+    // Function to check if the user is at home or away based on proximity to homeLocation
+    function checkMode() {
+      const distance = getDistance(userLocation, homeLocation);
+      const modeElement = document.getElementById("mode");
+
+      if (distance < 20) { 
+        modeElement.textContent = "Mode: Home";
+      } else {
+        modeElement.textContent = "Mode: Away";
+      }
+    }
+
+    // Function to calculate the distance between two points using Haversine formula
+    function getDistance(location1, location2) {
+      const R = 6371; // Radius of the Earth in kilometers
+      const dLat = toRad(location2.lat - location1.lat);
+      const dLng = toRad(location2.lng - location1.lng);
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toRad(location1.lat)) * Math.cos(toRad(location2.lat)) *
+        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distance = R * c; // Distance in kilometers
+      return distance * 1000; // Convert to meters
+    }
+
+    // Function to convert degrees to radians
+    function toRad(deg) {
+      return deg * (Math.PI / 180);
+    }
+
+    window.initMap = initMap;
+    </script>
+   
+  
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGJL3gsDbNzO3cm2FYKaHEqUhuU6v_Vlw&libraries=places&callback=initMap" async defer></script>
+
+ 
 </body>
+
 </html>
