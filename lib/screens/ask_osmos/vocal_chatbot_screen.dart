@@ -53,8 +53,7 @@ class _VocalChatbotScreenState extends State<VocalChatbotScreen>
   int _typingIndex = 0;
   Timer? _typingTimer;
 
-  final String _apiKey =
-      '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';
+  final String _apiKey = '';
 
   bool _isListening = false;
   bool _isAISpeaking = false;
@@ -62,7 +61,7 @@ class _VocalChatbotScreenState extends State<VocalChatbotScreen>
   late AnimationController _aiSpeakingAnimController;
 
   // Google Places API key for healthy restaurant suggestions
-  static const String _placesApiKey = 'AIzaSyCBQT-kAg-y3RlCpture9sjoiWLpXnvkbw';
+  static const String _placesApiKey = '';
 
   String getUserType(BuildContext context) {
     final profileProvider = Provider.of<UserProfileProvider>(
