@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Osmos Health</string>
+    <string name="facebook_app_id">565815219378259</string>
+    <string name="fb_login_protocol_scheme">fb565815219378259</string>
+    <string name="facebook_client_token">70ddee408800427c2be1ab6d33d0bb85</string>
+</resources>

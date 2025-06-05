@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Osmos Health</string>
+    <string name="default_web_client_id" translatable="false">1072116166304-g8u62jrsuf7sen0b50nm4msb97m6fmrv.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">565815219378259</string>
+    <string name="facebook_client_token">70ddee408800427c2be1ab6d33d0bb85</string>
+    <string name="fb_login_protocol_scheme">fb565815219378259</string>
+    <string name="gcm_defaultSenderId" translatable="false">1072116166304</string>
+    <string name="google_api_key" translatable="false">AIzaSyCd7b71CZ6o8sedINZIKzAlI8r5fA3Qfhg</string>
+    <string name="google_app_id" translatable="false">1:1072116166304:android:690d3163396728a91763c5</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCd7b71CZ6o8sedINZIKzAlI8r5fA3Qfhg</string>
+    <string name="google_storage_bucket" translatable="false">osmoshealthapp.firebasestorage.app</string>
+    <string name="project_id" translatable="false">osmoshealthapp</string>
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.osmos.app-debug-76:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.osmos.app-main-78:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.osmos.app-debug-76:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.osmos.app-main-78:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.osmos.app-debug-76:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.osmos.app-main-78:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.osmos.app-debug-76:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.osmos.app-main-78:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.osmos.app-debug-76:/drawable-v21_launch_background.xml.flat",
+        "source": "com.osmos.app-main-78:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.osmos.app-debug-76:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.osmos.app-main-78:/mipmap-hdpi/ic_launcher.png"
+    }
+]
