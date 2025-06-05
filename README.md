@@ -28,14 +28,6 @@ Osmos is a cross-platform mobile app for health, wellness, and self-care. It emp
 > - **Google Maps**: Location and mapping
 > - **Local Notifications**: Reminders and alerts
 
-```
-User <--> Flutter App <--> Firebase <--> Groq API
-                        <--> Google Maps
-                        <--> Local Notifications
-```
-
----
-
 ## 🛠️ Technologies
 
 - **Flutter** (Dart)
